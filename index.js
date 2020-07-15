@@ -8,14 +8,15 @@ bot.start(ctx => {
   return ctx.reply("Welcome to Mono Currency Bot");
 });
 //bot handler
-bot.hears('hi', (ctx)=> {
-  axios.get('https://api.monobank.ua/bank/currency')
-  .then((res)=>{
-    console.log(res.data);
-    return ctx.reply(res.data[0]);
-  })
-  .catch((err)=>{
-    return ctx.reply(err);
-  });
+bot.hears('hi', async (ctx)=> {
+  try {
+    const currencyObj = await axios.get(
+      'https://api.monobank.ua/bank/currency'
+      );
+    return ctx.reply(currencyObj.data[0]);
+
+  } catch (error) {
+    return ctx.reply(error);
+  }
 });
 bot.startPolling();
