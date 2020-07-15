@@ -23,10 +23,10 @@ Telegram bot for currency info with Node.js and monobankAPI
 
   - When monobankAPI find the currency
 
-![currency bot]('./img/currencyBot.png')
+![currency bot]('img/currencyBot.png')
 
   - When monobankAPI didn't find the currency or haven't currency exchange rate
 
-![currency bot]('./img/currencyBot-didntFound.png')
+![currency bot didnt found]('img/currencyBot-didntFound.png')
 
 
