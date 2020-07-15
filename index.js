@@ -9,6 +9,13 @@ bot.start(ctx => {
 });
 //bot handler
 bot.hears('hi', (ctx)=> {
-  return ctx.reply('Hi, from bot');
+  axios.get('https://api.monobank.ua/bank/currency')
+  .then((res)=>{
+    console.log(res.data);
+    return ctx.reply(res.data[0]);
+  })
+  .catch((err)=>{
+    return ctx.reply(err);
+  });
 });
 bot.startPolling();
