@@ -26,8 +26,8 @@ bot.hears(/^[A-Z]+$/i, async (ctx)=> {
     const foundCurrency = currencyObj.data.find((cur) => {
       return cur.currencyCodeA.toString() === currency.number;
     });
-
-    if (!foundCurrency){
+    console.log(foundCurrency);
+    if (!foundCurrency || !foundCurrency.rateBuy || !foundCurrency.rateSell){
       return ctx.reply('Currency didnt found in Monobank API');
     }
     return ctx.replyWithMarkdown(
